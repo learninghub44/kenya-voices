@@ -128,25 +128,44 @@ function ReportPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
-      <main className="flex-1 container-vok py-10 max-w-3xl">
-        <button onClick={() => navigate({ to: "/" })} className="text-sm text-muted-foreground inline-flex items-center gap-1 hover:text-foreground">
-          <ArrowLeft className="h-4 w-4" /> Back
-        </button>
-        <h1 className="mt-4 font-display text-3xl md:text-4xl font-bold">Report an Issue</h1>
-        <p className="mt-2 text-muted-foreground">Anonymous. Free. Takes ~2 minutes.</p>
-
-        <div className="mt-8 flex items-center gap-2">
-          {[1, 2, 3, 4].map((n) => (
-            <div key={n} className="flex-1">
-              <div className={`h-1.5 rounded-full ${n <= step ? "bg-primary" : "bg-muted"}`} />
-              <div className={`mt-1.5 text-[10px] uppercase tracking-widest font-semibold ${n === step ? "text-primary" : "text-muted-foreground"}`}>
-                {["Issue", "Location", "Evidence", "Review"][n - 1]}
+      <main className="flex-1">
+        <section className="bg-secondary/40 border-b border-border">
+          <div className="container-vok py-10 md:py-14 max-w-3xl">
+            <button onClick={() => navigate({ to: "/" })} className="text-sm text-muted-foreground inline-flex items-center gap-1 hover:text-foreground">
+              <ArrowLeft className="h-4 w-4" /> Back to home
+            </button>
+            <div className="mt-4 animate-rise">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-primary font-semibold">
+                <span className="h-px w-6 bg-primary/40" /> New report <span className="h-px w-6 bg-primary/40" />
               </div>
+              <h1 className="mt-3 font-display text-3xl md:text-4xl font-bold leading-[1.1]">
+                Report an <em className="not-italic text-primary">issue</em>
+              </h1>
+              <p className="mt-2 text-sm md:text-base text-muted-foreground">Anonymous. Free. Takes about two minutes.</p>
             </div>
-          ))}
-        </div>
 
-        <div className="mt-8 rounded-2xl border border-border bg-card p-6 md:p-8 shadow-card">
+            <div className="mt-8 grid grid-cols-4 gap-2 md:gap-3">
+              {[1, 2, 3, 4].map((n) => {
+                const active = n === step;
+                const done = n < step;
+                return (
+                  <div key={n} className="flex flex-col gap-2">
+                    <div className={`h-1.5 rounded-full transition-colors ${done ? "bg-primary" : active ? "bg-primary" : "bg-border"}`} />
+                    <div className="flex items-center gap-2">
+                      <span className={`grid h-6 w-6 place-items-center rounded-full text-[11px] font-bold transition-colors ${active ? "bg-primary text-primary-foreground" : done ? "bg-primary/15 text-primary" : "bg-muted text-muted-foreground"}`}>{n}</span>
+                      <span className={`text-[11px] uppercase tracking-[0.14em] font-semibold ${active ? "text-foreground" : "text-muted-foreground"}`}>
+                        {["Issue", "Location", "Evidence", "Review"][n - 1]}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <div className="container-vok py-10 max-w-3xl">
+        <div className="rounded-2xl border border-border bg-card p-6 md:p-8 shadow-card card-rise animate-rise-1">
           {step === 1 && (
             <div className="space-y-5">
               <Field label="Issue title" hint="Short, clear summary (5-200 chars)">
@@ -290,6 +309,7 @@ function ReportPage() {
               </button>
             )}
           </div>
+        </div>
         </div>
       </main>
       <SiteFooter />
