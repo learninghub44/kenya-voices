@@ -3,6 +3,9 @@ import { useSuspenseQuery, queryOptions } from "@tanstack/react-query";
 import { ArrowRight, MapPin, ShieldCheck, Sparkles, Users, Megaphone, TrendingUp } from "lucide-react";
 import { SiteHeader, SiteFooter, StatusBadge } from "@/components/layout";
 import { getStats, listIssues } from "@/lib/issues.functions";
+import heroNight from "@/assets/nairobi-night.jpg";
+import ctaDay from "@/assets/nairobi-day.jpg";
+import wildlife from "@/assets/kilimanjaro-elephants.jpg";
 
 const statsQO = queryOptions({ queryKey: ["stats"], queryFn: () => getStats() });
 const featuredQO = queryOptions({ queryKey: ["featured"], queryFn: () => listIssues({ data: { limit: 6 } }) });
