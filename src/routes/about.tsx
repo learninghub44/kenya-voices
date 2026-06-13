@@ -46,9 +46,10 @@ function About() {
             <li><strong>Community-supported.</strong> Funded by citizens, donors, and partners.</li>
           </ul>
         </div>
-        <Link to="/report" className="mt-10 inline-flex h-12 items-center rounded-xl bg-primary px-7 font-semibold text-primary-foreground">
-          Report your first issue
-        </Link>
+          <Link to="/report" className="mt-10 inline-flex h-12 items-center rounded-xl bg-primary px-7 font-semibold text-primary-foreground">
+            Report your first issue
+          </Link>
+        </div>
       </main>
       <SiteFooter />
     </div>
