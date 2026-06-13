@@ -148,3 +148,13 @@ ON CONFLICT (slug) DO NOTHING;
 -- After running everything above, create your admin user by
 -- visiting /admin/setup ONE TIME in the app.
 -- =====================================================
+
+-- =====================================================
+-- 2026-06-13 — Reporter contact details (optional, admin-only by default)
+-- Safe to re-run.
+-- =====================================================
+ALTER TABLE public.issues
+  ADD COLUMN IF NOT EXISTS reporter_name  TEXT,
+  ADD COLUMN IF NOT EXISTS reporter_phone TEXT,
+  ADD COLUMN IF NOT EXISTS reporter_email TEXT,
+  ADD COLUMN IF NOT EXISTS reporter_public BOOLEAN NOT NULL DEFAULT false;
