@@ -9,27 +9,11 @@ export const adminSetupExists = createServerFn({ method: "GET" }).handler(async 
   return { exists: (count ?? 0) > 0 };
 });
 
-export const adminSetup = createServerFn({ method: "POST" })
-  .inputValidator((input: { username: string; password: string }) => {
-    if (!input.username || input.username.length < 3) throw new Error("Username must be at least 3 characters");
-    if (!input.password || input.password.length < 8) throw new Error("Password must be at least 8 characters");
-    return input;
-  })
-  .handler(async ({ data }) => {
-    const sb = getSupabaseAdmin();
-    const { count } = await sb.from("admins").select("*", { count: "exact", head: true });
-    if ((count ?? 0) > 0) throw new Error("Admin already exists");
-    const password_hash = await bcrypt.hash(data.password, 10);
-    const { data: row, error } = await sb
-      .from("admins")
-      .insert({ username: data.username.trim().toLowerCase(), password_hash })
-      .select("id, username")
-      .single();
-    if (error) throw new Error(error.message);
-    const session = await getAdminSession();
-    await session.update({ adminId: row.id, username: row.username });
-    return { ok: true };
-  });
+// Admin account creation is intentionally disabled at the API layer.
+// Seed admins ONLY via a trusted SQL migration with a bcrypt password_hash.
+export const adminSetup = createServerFn({ method: "POST" }).handler(async () => {
+  throw new Error("Admin signup is disabled. Contact the system administrator.");
+});
 
 export const adminLogin = createServerFn({ method: "POST" })
   .inputValidator((input: { username: string; password: string }) => input)
