@@ -233,11 +233,11 @@ function ReportPage() {
           )}
 
           <div className="mt-8 flex items-center justify-between">
-            <button onClick={() => setStep((s) => Math.max(1, (s - 1) as Step))} disabled={step === 1} className="text-sm font-semibold text-muted-foreground disabled:opacity-30">
+            <button onClick={() => setStep((s) => (Math.max(1, s - 1) as Step))} disabled={step === 1} className="text-sm font-semibold text-muted-foreground disabled:opacity-30">
               Back
             </button>
             {step < 4 ? (
-              <button onClick={() => setStep((s) => Math.min(4, (s + 1) as Step))} disabled={!canNext()} className="inline-flex h-11 items-center rounded-lg bg-primary px-6 text-sm font-semibold text-primary-foreground disabled:opacity-50">
+              <button onClick={() => setStep((s) => (Math.min(4, s + 1) as Step))} disabled={!canNext()} className="inline-flex h-11 items-center rounded-lg bg-primary px-6 text-sm font-semibold text-primary-foreground disabled:opacity-50">
                 Continue
               </button>
             ) : (
