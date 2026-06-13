@@ -169,16 +169,20 @@ function Home() {
 
         {/* CTA */}
         <section className="container-vok py-20">
-          <div className="rounded-3xl p-10 md:p-16 text-white text-center" style={{ background: "var(--gradient-hero)" }}>
-            <h2 className="font-display text-3xl md:text-5xl font-bold max-w-3xl mx-auto">
-              Every issue you report makes Kenya stronger.
-            </h2>
-            <p className="mt-4 text-white/80 max-w-xl mx-auto">
-              Be a voice for your community. Reporting takes less than two minutes — and it's completely anonymous.
-            </p>
-            <Link to="/report" className="mt-8 inline-flex h-12 items-center gap-2 rounded-xl bg-[oklch(0.55_0.22_28)] px-7 text-sm font-bold uppercase tracking-wide shadow-elev">
-              Start Your Report <ArrowRight className="h-4 w-4" />
-            </Link>
+          <div className="relative overflow-hidden rounded-3xl p-10 md:p-16 text-white text-center">
+            <img src={ctaDay} alt="Nairobi skyline by day" className="absolute inset-0 h-full w-full object-cover" />
+            <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(0,60,30,0.85), rgba(140,30,20,0.75))" }} />
+            <div className="relative">
+              <h2 className="font-display text-3xl md:text-5xl font-bold max-w-3xl mx-auto">
+                Every issue you report makes Kenya stronger.
+              </h2>
+              <p className="mt-4 text-white/80 max-w-xl mx-auto">
+                Be a voice for your community. Reporting takes less than two minutes — and it's completely anonymous.
+              </p>
+              <Link to="/report" className="mt-8 inline-flex h-12 items-center gap-2 rounded-xl bg-[oklch(0.55_0.22_28)] px-7 text-sm font-bold uppercase tracking-wide shadow-elev">
+                Start Your Report <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </section>
       </main>
