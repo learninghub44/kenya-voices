@@ -51,12 +51,9 @@ function Home() {
           <div className="absolute inset-0 hero-grid opacity-40" />
           <div className="container-vok py-20 md:py-28 relative w-full">
             <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium backdrop-blur">
-                <Sparkles className="h-3.5 w-3.5" /> Independent · Community-powered · No login required
-              </div>
-              <h1 className="mt-6 font-display text-4xl md:text-6xl font-bold leading-[1.05] tracking-tight">
+              <h1 className="font-display text-4xl md:text-6xl font-bold leading-[1.02] tracking-tight">
                 One Nation. One Voice.<br />
-                <span className="text-[oklch(0.85_0.16_70)]">Every Issue Matters.</span>
+                <em className="not-italic text-[oklch(0.85_0.16_70)]">Every Issue Matters.</em>
               </h1>
               <p className="mt-6 text-lg md:text-xl text-white/80 max-w-2xl">
                 Report broken roads, water shortages, illegal dumping, corruption, or any community problem.
