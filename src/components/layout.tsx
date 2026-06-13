@@ -264,7 +264,6 @@ export function SiteFooter() {
           <div>© {new Date().getFullYear()} Voice of Kenya. Independent & community-supported.</div>
           <div className="flex items-center gap-5">
             <span>Not affiliated with any government agency.</span>
-            <Link to="/admin" className="hover:text-[#F5F0E8]/60 transition-colors">Admin</Link>
           </div>
         </div>
       </div>
