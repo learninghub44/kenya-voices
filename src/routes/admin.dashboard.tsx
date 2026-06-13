@@ -90,10 +90,20 @@ function Dashboard() {
           <div className="divide-y divide-border">
             {issues.length === 0 && <div className="p-10 text-center text-sm text-muted-foreground">No reports.</div>}
             {issues.map((it: any) => (
-              <div key={it.id} className="p-4 grid md:grid-cols-12 gap-3 items-center">
+              <div key={it.id} className="p-4 grid md:grid-cols-12 gap-3 items-start">
                 <div className="md:col-span-5">
                   <Link to="/issue/$id" params={{ id: it.id }} className="font-semibold hover:underline">{it.title}</Link>
                   <div className="mt-0.5 text-xs text-muted-foreground font-mono">{it.issue_number}</div>
+                  {(it.reporter_name || it.reporter_phone || it.reporter_email) ? (
+                    <div className="mt-2 rounded-lg bg-secondary/60 px-2.5 py-1.5 text-xs">
+                      <span className="font-semibold">{it.reporter_name || "Unnamed"}</span>
+                      {it.reporter_phone && <> · <a href={`tel:${it.reporter_phone}`} className="text-primary hover:underline">{it.reporter_phone}</a></>}
+                      {it.reporter_email && <> · <a href={`mailto:${it.reporter_email}`} className="text-primary hover:underline">{it.reporter_email}</a></>}
+                      {!it.reporter_public && <span className="ml-1 text-[10px] uppercase tracking-wider text-muted-foreground">admin-only</span>}
+                    </div>
+                  ) : (
+                    <div className="mt-1 text-[11px] italic text-muted-foreground">Anonymous report</div>
+                  )}
                 </div>
                 <div className="md:col-span-3 text-xs text-muted-foreground">{it.counties?.name} · {it.categories?.name}</div>
                 <div className="md:col-span-1"><StatusBadge status={it.status} /></div>

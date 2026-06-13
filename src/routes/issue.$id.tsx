@@ -84,6 +84,11 @@ function IssueDetail() {
           <span className="inline-flex items-center gap-1"><MapPin className="h-4 w-4" /> {it.counties?.name}{it.sub_county ? `, ${it.sub_county}` : ""}</span>
           <span className="inline-flex items-center gap-1"><Calendar className="h-4 w-4" /> {new Date(it.created_at).toLocaleDateString()}</span>
           <span>{it.categories?.name}</span>
+          {it.reporter_name ? (
+            <span className="inline-flex items-center gap-1">Reported by <span className="font-semibold text-foreground">{it.reporter_name}</span></span>
+          ) : (
+            <span className="italic">Reported anonymously</span>
+          )}
         </div>
 
         <div className="mt-6 grid lg:grid-cols-3 gap-8">
