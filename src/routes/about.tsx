@@ -36,7 +36,6 @@ function About() {
           </div>
         </div>
         <div className="container-vok py-12 max-w-3xl">
-        <div className="mt-8 prose prose-neutral max-w-none text-foreground">
           <p className="text-lg text-muted-foreground">
             Voice of Kenya (Sauti ya Wananchi) is an independently owned, community-supported
             platform that empowers citizens to report local issues, track resolution, and contribute
