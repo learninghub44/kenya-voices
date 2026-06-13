@@ -184,37 +184,37 @@ export function SiteFooter() {
         </div>
 
         <div className="md:col-span-2">
-          <div className="text-sm font-semibold mb-3">Platform</div>
-          <ul className="space-y-2 text-sm text-muted-foreground">
-            <li><Link to="/issues" className="hover:text-foreground">Browse Issues</Link></li>
-            <li><Link to="/report" className="hover:text-foreground">Report Issue</Link></li>
-            <li><Link to="/track" className="hover:text-foreground">Track Report</Link></li>
-            <li><Link to="/about" className="hover:text-foreground">About</Link></li>
+          <div className="font-display text-base font-bold mb-4 tracking-tight">Platform</div>
+          <ul className="space-y-2.5 text-sm text-muted-foreground">
+            <li><Link to="/issues" className="hover:text-primary transition-colors">Browse Issues</Link></li>
+            <li><Link to="/report" className="hover:text-primary transition-colors">Report Issue</Link></li>
+            <li><Link to="/track" className="hover:text-primary transition-colors">Track Report</Link></li>
+            <li><Link to="/about" className="hover:text-primary transition-colors">About</Link></li>
           </ul>
         </div>
 
         <div className="md:col-span-2">
-          <div className="text-sm font-semibold mb-3">Legal</div>
-          <ul className="space-y-2 text-sm text-muted-foreground">
-            <li><Link to="/privacy" className="hover:text-foreground">Privacy</Link></li>
-            <li><Link to="/terms" className="hover:text-foreground">Terms</Link></li>
-            <li><Link to="/contact" className="hover:text-foreground">Contact</Link></li>
+          <div className="font-display text-base font-bold mb-4 tracking-tight">Legal</div>
+          <ul className="space-y-2.5 text-sm text-muted-foreground">
+            <li><Link to="/privacy" className="hover:text-primary transition-colors">Privacy</Link></li>
+            <li><Link to="/terms" className="hover:text-primary transition-colors">Terms</Link></li>
+            <li><Link to="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
           </ul>
         </div>
 
         <div className="md:col-span-3">
-          <div className="text-sm font-semibold mb-3">Get in touch</div>
+          <div className="font-display text-base font-bold mb-4 tracking-tight">Get in touch</div>
           <ul className="space-y-3 text-sm text-muted-foreground">
             <li>
-              <a href="tel:+254701059192" className="flex items-start gap-2 hover:text-foreground">
+              <a href="tel:+254701059192" className="flex items-start gap-2.5 hover:text-foreground group">
                 <Phone className="h-4 w-4 mt-0.5 shrink-0 text-primary" />
-                <span>+254 701 059 192<br /><span className="text-xs text-muted-foreground/80">Call · WhatsApp · M-Pesa</span></span>
+                <span><span className="font-semibold text-foreground group-hover:text-primary">+254 701 059 192</span><br /><span className="text-xs text-muted-foreground/80">Call · WhatsApp · M-Pesa</span></span>
               </a>
             </li>
             <li>
-              <a href="mailto:zetubusiness.web@gmail.com" className="flex items-start gap-2 hover:text-foreground break-all">
+              <a href="mailto:zetubusiness.web@gmail.com" className="flex items-start gap-2.5 hover:text-foreground break-all group">
                 <Mail className="h-4 w-4 mt-0.5 shrink-0 text-primary" />
-                <span>zetubusiness.web@gmail.com</span>
+                <span className="font-semibold text-foreground group-hover:text-primary">zetubusiness.web@gmail.com</span>
               </a>
             </li>
           </ul>
