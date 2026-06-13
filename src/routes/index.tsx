@@ -46,6 +46,8 @@ function Home() {
       <main className="flex-1">
         {/* HERO */}
         <section className="relative overflow-hidden text-white hero-grid" style={{ background: "var(--gradient-hero)" }}>
+          <img src={heroNight} alt="Nairobi skyline at dusk" className="absolute inset-0 h-full w-full object-cover opacity-30" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.75))" }} />
           <div className="container-vok py-20 md:py-28 relative">
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium backdrop-blur">
