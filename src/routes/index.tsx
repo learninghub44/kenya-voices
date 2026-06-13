@@ -3,10 +3,9 @@ import { useSuspenseQuery, queryOptions } from "@tanstack/react-query";
 import { ArrowRight, MapPin, ShieldCheck, Users, Megaphone, TrendingUp, ChevronRight } from "lucide-react";
 import { SiteHeader, SiteFooter, StatusBadge } from "@/components/layout";
 import { getStats, listIssues } from "@/lib/issues.functions";
+import heroNight from "@/assets/nairobi-night.jpg";
+import ctaDay from "@/assets/nairobi-day.jpg";
 
-// Public domain / Unsplash free images loaded at runtime (no build-time download)
-const HERO_NIGHT = "https://images.unsplash.com/photo-1611348524140-53c9a25263d6?w=1920&q=80&auto=format&fit=crop";
-const CTA_DAY    = "https://images.unsplash.com/photo-1567108535635-5f72e05cdc55?w=1920&q=80&auto=format&fit=crop";
 
 const statsQO = queryOptions({ queryKey: ["stats"], queryFn: () => getStats() });
 const featuredQO = queryOptions({ queryKey: ["featured"], queryFn: () => listIssues({ data: { limit: 6 } }) });
@@ -50,7 +49,7 @@ function Home() {
         <section className="relative overflow-hidden min-h-[88vh] flex items-center section-dark">
           {/* Photo layer */}
           <img
-            src={HERO_NIGHT}
+            src={heroNight}
             alt="Nairobi skyline at night"
             className="absolute inset-0 h-full w-full object-cover"
           />
@@ -292,7 +291,7 @@ function Home() {
         <section className="container-vok py-20 md:py-24">
           <div className="relative overflow-hidden rounded-md text-white" style={{ background: "#0D0F14" }}>
             {/* Photo bg */}
-            <img src={CTA_DAY} alt="" className="absolute inset-0 h-full w-full object-cover opacity-25" />
+            <img src={ctaDay} alt="" className="absolute inset-0 h-full w-full object-cover opacity-25" />
             {/* Overlay */}
             <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(200,16,46,0.25), rgba(26,92,56,0.25))" }} />
             {/* Flag stripe at top */}
