@@ -81,6 +81,20 @@ export const adminListIssues = createServerFn({ method: "GET" })
     return rows ?? [];
   });
 
+export const adminGetIssue = createServerFn({ method: "GET" })
+  .inputValidator((input: { id: string }) => input)
+  .handler(async ({ data }) => {
+    await requireAdmin();
+    const sb = getSupabaseAdmin();
+    const { data: issue, error } = await sb
+      .from("issues")
+      .select("*, counties(name, slug), categories(name, slug)")
+      .eq("id", data.id)
+      .maybeSingle();
+    if (error) throw new Error(error.message);
+    return issue;
+  });
+
 export const adminUpdateStatus = createServerFn({ method: "POST" })
   .inputValidator((input: { issue_id: string; new_status: string; note?: string }) => input)
   .handler(async ({ data }) => {
