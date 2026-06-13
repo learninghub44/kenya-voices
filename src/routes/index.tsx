@@ -110,10 +110,13 @@ function Home() {
               { n: "01", t: "Report", d: "Submit your issue with photos, location, and details in under 2 minutes." },
               { n: "02", t: "Track", d: "Receive a unique tracking code to monitor progress and add updates." },
               { n: "03", t: "Resolve", d: "Community support drives visibility and accountability until resolution." },
-            ].map((s) => (
-              <div key={s.n} className="rounded-2xl border border-border bg-card p-7 shadow-card hover:shadow-elev transition">
-                <div className="font-display text-5xl font-bold text-primary/20">{s.n}</div>
-                <h3 className="mt-3 text-xl font-bold">{s.t}</h3>
+            ].map((s, i) => (
+              <div key={s.n} className="relative rounded-2xl border border-border bg-card p-7 shadow-card hover:shadow-elev hover:-translate-y-0.5 transition">
+                <div className="absolute top-5 right-5 grid h-8 w-8 place-items-center rounded-full bg-primary text-primary-foreground text-xs font-bold">
+                  {i + 1}
+                </div>
+                <div className="font-display text-5xl font-black bg-gradient-to-br from-primary to-destructive bg-clip-text text-transparent leading-none">{s.n}</div>
+                <h3 className="mt-4 text-xl font-bold">{s.t}</h3>
                 <p className="mt-2 text-sm text-muted-foreground">{s.d}</p>
               </div>
             ))}
