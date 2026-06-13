@@ -51,11 +51,11 @@ function Home() {
           <div className="absolute inset-0 hero-grid opacity-40" />
           <div className="container-vok py-20 md:py-28 relative w-full">
             <div className="max-w-3xl">
-              <h1 className="font-display text-4xl md:text-6xl font-bold leading-[1.02] tracking-tight">
+              <h1 className="font-display text-3xl md:text-5xl font-bold leading-[1.05] tracking-tight">
                 One Nation. One Voice.<br />
                 <em className="not-italic text-[oklch(0.78_0.16_245)]">Every Issue Matters.</em>
               </h1>
-              <p className="mt-6 text-lg md:text-xl text-white/80 max-w-2xl">
+              <p className="mt-5 text-base md:text-lg text-white/85 max-w-2xl">
                 Report broken roads, water shortages, illegal dumping, corruption, or any community problem.
                 Track resolution. Hold leaders accountable — across all 47 counties.
               </p>
