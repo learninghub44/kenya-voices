@@ -53,7 +53,7 @@ function Home() {
             <div className="max-w-3xl">
               <h1 className="font-display text-4xl md:text-6xl font-bold leading-[1.02] tracking-tight">
                 One Nation. One Voice.<br />
-                <em className="not-italic text-[oklch(0.85_0.16_70)]">Every Issue Matters.</em>
+                <em className="not-italic text-[oklch(0.78_0.16_245)]">Every Issue Matters.</em>
               </h1>
               <p className="mt-6 text-lg md:text-xl text-white/80 max-w-2xl">
                 Report broken roads, water shortages, illegal dumping, corruption, or any community problem.
@@ -209,7 +209,7 @@ function Home() {
                 <span className="h-px w-6 bg-white/40" /> Sauti ya Wananchi <span className="h-px w-6 bg-white/40" />
               </div>
               <h2 className="mt-4 font-display text-3xl md:text-6xl font-bold max-w-3xl mx-auto leading-[1.05]">
-                Every issue you report makes <em className="not-italic text-[oklch(0.85_0.16_70)]">Kenya stronger.</em>
+                Every issue you report makes <em className="not-italic text-[oklch(0.78_0.16_245)]">Kenya stronger.</em>
               </h2>
               <p className="mt-6 text-white/80 max-w-xl mx-auto text-base md:text-lg">
                 Be a voice for your community. Reporting takes less than two minutes — and it's completely anonymous.
