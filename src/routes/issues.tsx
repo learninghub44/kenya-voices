@@ -42,7 +42,7 @@ function IssuesPage() {
               <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-primary font-semibold">
                 <span className="h-px w-6 bg-primary/40" /> Live feed
               </div>
-              <h1 className="mt-3 font-display text-4xl md:text-5xl font-bold leading-[1.05]">
+              <h1 className="mt-3 font-display text-3xl md:text-4xl font-bold leading-[1.05]">
                 All <em className="not-italic text-primary">community reports</em>
               </h1>
               <p className="mt-4 text-muted-foreground text-base md:text-lg">Search and filter citizen-reported issues across all 47 counties.</p>
