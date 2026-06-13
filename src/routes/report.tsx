@@ -220,6 +220,43 @@ function ReportPage() {
               <Field label="Additional notes (optional)">
                 <textarea value={form.additional_notes} onChange={(e) => setForm({ ...form, additional_notes: e.target.value })} rows={3} className="vok-input resize-none" />
               </Field>
+
+              <div className="mt-2 rounded-2xl border border-border bg-secondary/40 p-5">
+                <div className="flex items-start gap-3">
+                  <div className="grid h-9 w-9 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
+                    <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s-8-4.5-8-12a8 8 0 0 1 16 0c0 7.5-8 12-8 12Z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </div>
+                  <div>
+                    <div className="font-semibold text-sm">Your contact details (optional)</div>
+                    <div className="text-xs text-muted-foreground mt-0.5">Used only so verified government officials and our admin team can follow up if needed. Hidden from the public by default.</div>
+                  </div>
+                </div>
+                <div className="mt-4 grid md:grid-cols-2 gap-3">
+                  <Field label="Full name">
+                    <input value={form.reporter_name} onChange={(e) => setForm({ ...form, reporter_name: e.target.value })} maxLength={120} className="vok-input" placeholder="Jane Wanjiku" />
+                  </Field>
+                  <Field label="Phone">
+                    <input value={form.reporter_phone} onChange={(e) => setForm({ ...form, reporter_phone: e.target.value })} maxLength={20} className="vok-input" placeholder="+254 7XX XXX XXX" />
+                  </Field>
+                  <div className="md:col-span-2">
+                    <Field label="Email">
+                      <input value={form.reporter_email} onChange={(e) => setForm({ ...form, reporter_email: e.target.value })} type="email" maxLength={200} className="vok-input" placeholder="you@example.com" />
+                    </Field>
+                  </div>
+                </div>
+                <label className="mt-4 flex items-start gap-3 cursor-pointer rounded-xl border border-border bg-background p-3 hover:bg-secondary/50">
+                  <input
+                    type="checkbox"
+                    checked={form.reporter_public}
+                    onChange={(e) => setForm({ ...form, reporter_public: e.target.checked })}
+                    className="mt-0.5 h-4 w-4 accent-primary"
+                  />
+                  <span className="text-xs leading-relaxed">
+                    <span className="font-semibold text-foreground">Display my name publicly on this report.</span>{" "}
+                    <span className="text-muted-foreground">If unchecked (default), your details are only visible to verified admins. Phone and email are never displayed publicly.</span>
+                  </span>
+                </label>
+              </div>
             </div>
           )}
 
@@ -233,6 +270,8 @@ function ReportPage() {
               <Review label="Sub-county / Ward" value={[form.sub_county, form.ward].filter(Boolean).join(" / ") || "—"} />
               <Review label="GPS" value={form.latitude ? `${form.latitude.toFixed(5)}, ${form.longitude?.toFixed(5)}` : "—"} />
               <Review label="Photos" value={`${form.images.length} attached`} />
+              <Review label="Your contact" value={form.reporter_name || form.reporter_phone || form.reporter_email ? `${form.reporter_name || "—"} · ${form.reporter_phone || "—"} · ${form.reporter_email || "—"}` : "Not provided (anonymous)"} />
+              <Review label="Visibility" value={form.reporter_public ? "Name shown publicly" : "Admin-only (recommended)"} />
             </div>
           )}
 
