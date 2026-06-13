@@ -122,10 +122,17 @@ export const createIssue = createServerFn({ method: "POST" })
     longitude?: number;
     images?: string[];
     additional_notes?: string;
+    reporter_name?: string;
+    reporter_phone?: string;
+    reporter_email?: string;
+    reporter_public?: boolean;
   }) => {
     if (!input.title || input.title.length < 5 || input.title.length > 200) throw new Error("Title must be 5-200 characters");
     if (!input.description || input.description.length < 20 || input.description.length > 5000) throw new Error("Description must be 20-5000 characters");
     if (!input.category_id || !input.county_id) throw new Error("Category and county required");
+    if (input.reporter_name && input.reporter_name.length > 120) throw new Error("Name too long");
+    if (input.reporter_email && !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(input.reporter_email)) throw new Error("Invalid email");
+    if (input.reporter_phone && !/^[+\d\s\-()]{7,20}$/.test(input.reporter_phone)) throw new Error("Invalid phone");
     return input;
   })
   .handler(async ({ data }) => {
@@ -149,6 +156,10 @@ export const createIssue = createServerFn({ method: "POST" })
         images: data.images ?? [],
         additional_notes: data.additional_notes?.trim() || null,
         reporter_ip_hash: ip_hash,
+        reporter_name: data.reporter_name?.trim() || null,
+        reporter_phone: data.reporter_phone?.trim() || null,
+        reporter_email: data.reporter_email?.trim().toLowerCase() || null,
+        reporter_public: !!data.reporter_public,
       })
       .select("id, issue_number, tracking_code")
       .single();
