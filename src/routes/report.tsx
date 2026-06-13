@@ -310,6 +310,7 @@ function ReportPage() {
             )}
           </div>
         </div>
+        </div>
       </main>
       <SiteFooter />
       <style>{`.vok-input{display:block;width:100%;height:44px;padding:0 14px;border-radius:10px;border:1px solid var(--color-border);background:var(--color-background);font:inherit;color:inherit;transition:border-color .15s, box-shadow .15s}.vok-input:focus{outline:none;border-color:var(--color-primary);box-shadow:0 0 0 3px color-mix(in oklch, var(--color-primary) 20%, transparent)}textarea.vok-input{height:auto;padding:12px 14px}`}</style>
