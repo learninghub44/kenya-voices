@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader, SiteFooter } from "@/components/layout";
 import { ArrowRight, Eye, Target, ShieldCheck, Users, Zap } from "lucide-react";
-import wildlife from "@/assets/kilimanjaro-elephants.jpg";
+import wildlife from "@/assets/nairobi-skyline.jpg";
 
 
 export const Route = createFileRoute("/about")({
@@ -24,7 +24,7 @@ function About() {
         <div className="relative h-[60vh] min-h-[420px] md:h-[68vh] overflow-hidden">
           <img
             src={wildlife}
-            alt="Elephants grazing in front of Mount Kilimanjaro"
+            alt="Nairobi city skyline aerial view"
             className="absolute inset-0 h-full w-full object-cover"
             style={{ objectPosition: "center 35%" }}
           />
