@@ -17,14 +17,22 @@ function About() {
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
       <main className="flex-1">
-        <div className="relative h-72 md:h-96 overflow-hidden">
-          <img src={wildlife} alt="Elephants in front of Mount Kilimanjaro" className="absolute inset-0 h-full w-full object-cover" />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.7))" }} />
-          <div className="container-vok relative h-full flex flex-col justify-end pb-8 text-white">
-            <div className="text-xs uppercase tracking-[0.2em] font-semibold">About</div>
-            <h1 className="mt-2 font-display text-4xl md:text-5xl font-bold leading-tight">
-              A digital voice for every Kenyan.
+        <div className="relative h-[60vh] min-h-[420px] md:h-[70vh] overflow-hidden">
+          <img
+            src={wildlife}
+            alt="Elephants grazing in front of Mount Kilimanjaro"
+            className="absolute inset-0 h-full w-full object-cover"
+            style={{ objectPosition: "center 35%" }}
+          />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.25) 45%, rgba(0,0,0,0.85) 100%)" }} />
+          <div className="container-vok relative h-full flex flex-col justify-end pb-12 md:pb-16 text-white">
+            <div className="text-[11px] uppercase tracking-[0.3em] font-semibold text-white/80">About · Sauti ya Wananchi</div>
+            <h1 className="mt-3 font-display text-4xl md:text-6xl font-bold leading-[1.05] max-w-3xl">
+              A digital voice for <em className="not-italic text-[oklch(0.85_0.16_70)]">every Kenyan.</em>
             </h1>
+            <p className="mt-4 max-w-xl text-white/85 text-base md:text-lg">
+              From Mount Kilimanjaro to Lake Turkana — one platform, 47 counties, every story heard.
+            </p>
           </div>
         </div>
         <div className="container-vok py-12 max-w-3xl">
