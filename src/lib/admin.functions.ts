@@ -72,7 +72,7 @@ export const adminListIssues = createServerFn({ method: "GET" })
     const sb = getSupabaseAdmin();
     let q = sb
       .from("issues")
-      .select("id, issue_number, title, status, support_count, created_at, counties(name), categories(name)")
+      .select("id, issue_number, title, status, support_count, created_at, reporter_name, reporter_phone, reporter_email, reporter_public, counties(name), categories(name)")
       .order("created_at", { ascending: false })
       .limit(100);
     if (data.status) q = q.eq("status", data.status);
