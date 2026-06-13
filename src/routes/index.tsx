@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useSuspenseQuery, queryOptions } from "@tanstack/react-query";
-import { ArrowRight, MapPin, ShieldCheck, Sparkles, Users, Megaphone, TrendingUp } from "lucide-react";
+import { ArrowRight, MapPin, ShieldCheck, Users, Megaphone, TrendingUp } from "lucide-react";
 import { SiteHeader, SiteFooter, StatusBadge } from "@/components/layout";
 import { getStats, listIssues } from "@/lib/issues.functions";
 import heroNight from "@/assets/nairobi-night.jpg";
