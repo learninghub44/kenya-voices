@@ -51,7 +51,7 @@ function Home() {
           <div className="absolute inset-0 hero-grid opacity-40" />
           <div className="container-vok py-20 md:py-28 relative w-full">
             <div className="max-w-3xl">
-              <h1 className="font-display text-3xl md:text-5xl font-bold leading-[1.05] tracking-tight">
+              <h1 className="font-display text-2xl md:text-4xl font-bold leading-[1.1] tracking-tight">
                 One Nation. One Voice.<br />
                 <em className="not-italic text-[oklch(0.78_0.16_245)]">Every Issue Matters.</em>
               </h1>
@@ -105,7 +105,7 @@ function Home() {
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.22em] text-primary font-semibold">
               <span className="h-px w-6 bg-primary/40" /> How it works <span className="h-px w-6 bg-primary/40" />
             </div>
-            <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold leading-[1.05]">
+            <h2 className="mt-3 font-display text-2xl md:text-4xl font-bold leading-[1.1]">
               Your voice in <em className="not-italic text-primary">three simple steps</em>
             </h2>
             <p className="mt-4 text-muted-foreground">No registration. No paperwork. Just action.</p>
@@ -143,7 +143,7 @@ function Home() {
                 <div className="text-xs uppercase tracking-[0.22em] text-primary font-semibold flex items-center gap-2">
                   <TrendingUp className="h-3.5 w-3.5" /> Latest reports
                 </div>
-                <h2 className="mt-3 font-display text-3xl md:text-5xl font-bold leading-[1.05]">From across the nation</h2>
+                <h2 className="mt-3 font-display text-2xl md:text-4xl font-bold leading-[1.1]">From across the nation</h2>
               </div>
               <Link to="/issues" className="text-sm font-semibold text-primary hover:underline inline-flex items-center gap-1">
                 View all <ArrowRight className="h-4 w-4" />
@@ -208,7 +208,7 @@ function Home() {
               <div className="inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.25em] text-white/70 font-semibold">
                 <span className="h-px w-6 bg-white/40" /> Sauti ya Wananchi <span className="h-px w-6 bg-white/40" />
               </div>
-              <h2 className="mt-4 font-display text-3xl md:text-6xl font-bold max-w-3xl mx-auto leading-[1.05]">
+              <h2 className="mt-4 font-display text-2xl md:text-4xl font-bold max-w-3xl mx-auto leading-[1.05]">
                 Every issue you report makes <em className="not-italic text-[oklch(0.78_0.16_245)]">Kenya stronger.</em>
               </h2>
               <p className="mt-6 text-white/80 max-w-xl mx-auto text-base md:text-lg">
