@@ -28,7 +28,7 @@ function About() {
           <div className="container-vok relative h-full flex flex-col justify-end pb-12 md:pb-16 text-white">
             <div className="text-[11px] uppercase tracking-[0.3em] font-semibold text-white/80">About · Sauti ya Wananchi</div>
             <h1 className="mt-3 font-display text-4xl md:text-6xl font-bold leading-[1.05] max-w-3xl">
-              A digital voice for <em className="not-italic text-[oklch(0.85_0.16_70)]">every Kenyan.</em>
+              A digital voice for <em className="not-italic text-[oklch(0.78_0.16_245)]">every Kenyan.</em>
             </h1>
             <p className="mt-4 max-w-xl text-white/85 text-base md:text-lg">
               From Mount Kilimanjaro to Lake Turkana — one platform, 47 counties, every story heard.
