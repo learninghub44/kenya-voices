@@ -37,6 +37,10 @@ function ReportPage() {
     longitude: undefined as number | undefined,
     images: [] as string[],
     additional_notes: "",
+    reporter_name: "",
+    reporter_phone: "",
+    reporter_email: "",
+    reporter_public: false,
   });
   const [uploading, setUploading] = useState(false);
 
