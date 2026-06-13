@@ -3,6 +3,9 @@ import { useSuspenseQuery, queryOptions } from "@tanstack/react-query";
 import { ArrowRight, MapPin, ShieldCheck, Sparkles, Users, Megaphone, TrendingUp } from "lucide-react";
 import { SiteHeader, SiteFooter, StatusBadge } from "@/components/layout";
 import { getStats, listIssues } from "@/lib/issues.functions";
+import heroNight from "@/assets/nairobi-night.jpg";
+import ctaDay from "@/assets/nairobi-day.jpg";
+import wildlife from "@/assets/kilimanjaro-elephants.jpg";
 
 const statsQO = queryOptions({ queryKey: ["stats"], queryFn: () => getStats() });
 const featuredQO = queryOptions({ queryKey: ["featured"], queryFn: () => listIssues({ data: { limit: 6 } }) });
@@ -43,6 +46,8 @@ function Home() {
       <main className="flex-1">
         {/* HERO */}
         <section className="relative overflow-hidden text-white hero-grid" style={{ background: "var(--gradient-hero)" }}>
+          <img src={heroNight} alt="Nairobi skyline at dusk" className="absolute inset-0 h-full w-full object-cover opacity-30" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.55), rgba(0,0,0,0.75))" }} />
           <div className="container-vok py-20 md:py-28 relative">
             <div className="max-w-3xl">
               <div className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/5 px-3 py-1 text-xs font-medium backdrop-blur">
@@ -164,16 +169,20 @@ function Home() {
 
         {/* CTA */}
         <section className="container-vok py-20">
-          <div className="rounded-3xl p-10 md:p-16 text-white text-center" style={{ background: "var(--gradient-hero)" }}>
-            <h2 className="font-display text-3xl md:text-5xl font-bold max-w-3xl mx-auto">
-              Every issue you report makes Kenya stronger.
-            </h2>
-            <p className="mt-4 text-white/80 max-w-xl mx-auto">
-              Be a voice for your community. Reporting takes less than two minutes — and it's completely anonymous.
-            </p>
-            <Link to="/report" className="mt-8 inline-flex h-12 items-center gap-2 rounded-xl bg-[oklch(0.55_0.22_28)] px-7 text-sm font-bold uppercase tracking-wide shadow-elev">
-              Start Your Report <ArrowRight className="h-4 w-4" />
-            </Link>
+          <div className="relative overflow-hidden rounded-3xl p-10 md:p-16 text-white text-center">
+            <img src={ctaDay} alt="Nairobi skyline by day" className="absolute inset-0 h-full w-full object-cover" />
+            <div className="absolute inset-0" style={{ background: "linear-gradient(135deg, rgba(0,60,30,0.85), rgba(140,30,20,0.75))" }} />
+            <div className="relative">
+              <h2 className="font-display text-3xl md:text-5xl font-bold max-w-3xl mx-auto">
+                Every issue you report makes Kenya stronger.
+              </h2>
+              <p className="mt-4 text-white/80 max-w-xl mx-auto">
+                Be a voice for your community. Reporting takes less than two minutes — and it's completely anonymous.
+              </p>
+              <Link to="/report" className="mt-8 inline-flex h-12 items-center gap-2 rounded-xl bg-[oklch(0.55_0.22_28)] px-7 text-sm font-bold uppercase tracking-wide shadow-elev">
+                Start Your Report <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
           </div>
         </section>
       </main>
