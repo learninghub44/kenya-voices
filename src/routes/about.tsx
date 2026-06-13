@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteHeader, SiteFooter } from "@/components/layout";
+import wildlife from "@/assets/kilimanjaro-elephants.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -15,11 +16,18 @@ function About() {
   return (
     <div className="min-h-screen flex flex-col">
       <SiteHeader />
-      <main className="flex-1 container-vok py-16 max-w-3xl">
-        <div className="text-xs uppercase tracking-[0.2em] text-primary font-semibold">About</div>
-        <h1 className="mt-2 font-display text-4xl md:text-5xl font-bold leading-tight">
-          A digital voice for every Kenyan.
-        </h1>
+      <main className="flex-1">
+        <div className="relative h-72 md:h-96 overflow-hidden">
+          <img src={wildlife} alt="Elephants in front of Mount Kilimanjaro" className="absolute inset-0 h-full w-full object-cover" />
+          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, rgba(0,0,0,0.2), rgba(0,0,0,0.7))" }} />
+          <div className="container-vok relative h-full flex flex-col justify-end pb-8 text-white">
+            <div className="text-xs uppercase tracking-[0.2em] font-semibold">About</div>
+            <h1 className="mt-2 font-display text-4xl md:text-5xl font-bold leading-tight">
+              A digital voice for every Kenyan.
+            </h1>
+          </div>
+        </div>
+        <div className="container-vok py-12 max-w-3xl">
         <div className="mt-8 prose prose-neutral max-w-none text-foreground">
           <p className="text-lg text-muted-foreground">
             Voice of Kenya (Sauti ya Wananchi) is an independently owned, community-supported
