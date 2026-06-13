@@ -75,18 +75,24 @@ function Home() {
         </section>
 
         {/* STATS */}
-        <section className="container-vok -mt-10 relative z-10">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 rounded-2xl border border-border bg-card p-3 shadow-elev">
+        <section className="container-vok -mt-12 md:-mt-14 relative z-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-2.5 md:gap-3 rounded-2xl border border-border bg-card p-2.5 md:p-3 shadow-elev">
             {[
-              { label: "Issues Reported", value: stats.totalIssues, icon: Megaphone },
-              { label: "Resolved", value: stats.resolvedIssues, icon: ShieldCheck },
-              { label: "Active Counties", value: stats.activeCounties, icon: MapPin },
-              { label: "Community Support", value: stats.totalSupports, icon: Users },
+              { label: "Issues Reported", value: stats.totalIssues, icon: Megaphone, tint: "bg-primary/10 text-primary" },
+              { label: "Resolved", value: stats.resolvedIssues, icon: ShieldCheck, tint: "bg-success/15 text-success" },
+              { label: "Active Counties", value: stats.activeCounties, icon: MapPin, tint: "bg-destructive/10 text-destructive" },
+              { label: "Community Support", value: stats.totalSupports, icon: Users, tint: "bg-warning/15 text-warning" },
             ].map((s) => (
-              <div key={s.label} className="rounded-xl bg-secondary p-4">
-                <s.icon className="h-5 w-5 text-primary" />
-                <div className="mt-3 text-2xl md:text-3xl font-bold font-display tracking-tight">{s.value.toLocaleString()}</div>
-                <div className="text-xs uppercase tracking-wide text-muted-foreground mt-0.5">{s.label}</div>
+              <div key={s.label} className="rounded-xl bg-secondary p-3.5 md:p-4 flex flex-col gap-2">
+                <div className={`grid h-8 w-8 place-items-center rounded-lg ${s.tint}`}>
+                  <s.icon className="h-4 w-4" />
+                </div>
+                <div className="text-2xl md:text-3xl font-bold font-display tracking-tight leading-none text-foreground">
+                  {s.value.toLocaleString()}
+                </div>
+                <div className="text-[10px] md:text-xs uppercase tracking-wider font-semibold text-foreground/70 leading-tight">
+                  {s.label}
+                </div>
               </div>
             ))}
           </div>
