@@ -93,7 +93,7 @@
   --kenya-ivory: oklch(0.99 0.004 80);
 
   --success: oklch(0.58 0.16 150);
-  --warning: oklch(0.72 0.17 70);
+  --warning: oklch(0.55 0.18 250);
 
   --gradient-hero: linear-gradient(
     135deg,
