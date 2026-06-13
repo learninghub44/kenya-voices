@@ -85,7 +85,15 @@ export const getIssue = createServerFn({ method: "GET" })
       sb.from("comments").select("id, author_name, content, created_at").eq("issue_id", data.id).eq("is_hidden", false).order("created_at", { ascending: true }),
       sb.from("status_updates").select("*").eq("issue_id", data.id).order("created_at", { ascending: true }),
     ]);
-    return { issue, comments: comments ?? [], updates: updates ?? [] };
+    // Strip reporter PII unless the reporter explicitly opted to make it public
+    const safe: any = { ...issue };
+    delete safe.reporter_ip_hash;
+    if (!issue.reporter_public) {
+      safe.reporter_name = null;
+      safe.reporter_phone = null;
+      safe.reporter_email = null;
+    }
+    return { issue: safe, comments: comments ?? [], updates: updates ?? [] };
   });
 
 export const trackIssue = createServerFn({ method: "GET" })
