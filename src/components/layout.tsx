@@ -221,6 +221,19 @@ export function SiteFooter() {
         </div>
 
         <div className="md:col-span-2">
+          <div className="font-sans text-[11px] uppercase tracking-[0.18em] font-bold text-[#F5F0E8]/40 mb-4">Government</div>
+          <ul className="space-y-2.5 text-sm text-[#F5F0E8]/60">
+            {[
+              { to: "/government-sectors", label: "Government Sectors" },
+            ].map(({ to, label }) => (
+              <li key={to}>
+                <Link to={to} className="hover:text-[#F5F0E8] transition-colors">{label}</Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div className="md:col-span-2">
           <div className="font-sans text-[11px] uppercase tracking-[0.18em] font-bold text-[#F5F0E8]/40 mb-4">Legal</div>
           <ul className="space-y-2.5 text-sm text-[#F5F0E8]/60">
             {[
