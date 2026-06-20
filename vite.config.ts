@@ -4,8 +4,7 @@ export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
   },
-  // Override nitro preset for Vercel deployment
   nitro: {
-    preset: "vercel",
+    preset: "cloudflare-pages",
   },
 });
