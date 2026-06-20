@@ -225,6 +225,7 @@ export function SiteFooter() {
           <ul className="space-y-2.5 text-sm text-[#F5F0E8]/60">
             {[
               { to: "/government-sectors", label: "Government Sectors" },
+              { to: "/county-governments", label: "County Governments" },
             ].map(({ to, label }) => (
               <li key={to}>
                 <Link to={to} className="hover:text-[#F5F0E8] transition-colors">{label}</Link>
