@@ -226,6 +226,7 @@ export function SiteFooter() {
             {[
               { to: "/government-sectors", label: "Government Sectors" },
               { to: "/county-governments", label: "County Governments" },
+              { to: "/government-agencies", label: "Government Agencies" },
             ].map(({ to, label }) => (
               <li key={to}>
                 <Link to={to} className="hover:text-[#F5F0E8] transition-colors">{label}</Link>
