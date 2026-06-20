@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useSuspenseQuery, queryOptions } from "@tanstack/react-query";
-import { ArrowRight, MapPin, ShieldCheck, Users, Megaphone, TrendingUp, ChevronRight } from "lucide-react";
+import { ArrowRight, MapPin, ShieldCheck, Users, Megaphone, ChevronRight } from "lucide-react";
 import { SiteHeader, SiteFooter, StatusBadge } from "@/components/layout";
 import { getStats, listIssues } from "@/lib/issues.functions";
 import heroNight from "@/assets/nairobi-night.jpg";
@@ -209,22 +209,16 @@ function Home() {
           </div>
         </section>
 
-        {/* ═══ FEATURED REPORTS ═══ */}
-        <section className="border-y border-[#D8D2C8] bg-[#EDE8DF] py-20 md:py-24">
+        {/* ═══ EDITORIAL MAGAZINE — MASTHEAD LAYOUT ═══ */}
+        <section className="border-y border-[#D8D2C8] bg-[#EDE8DF] py-20 md:py-28">
           <div className="container-vok">
-            <div className="flex items-end justify-between mb-12 gap-4 flex-wrap">
-              <div className="animate-rise">
-                <div className="eyebrow"><TrendingUp className="h-3.5 w-3.5" /> Latest reports</div>
-                <h2 className="mt-4 font-display text-[clamp(1.75rem,4vw,3rem)] font-bold text-[#0D0F14]">
-                  From across the nation
-                </h2>
-              </div>
-              <Link
-                to="/issues"
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#1A5C38] hover:text-[#C8102E] transition-colors"
-              >
-                View all reports <ChevronRight className="h-4 w-4" />
-              </Link>
+            {/* Masthead */}
+            <div className="mb-16 animate-rise">
+              <div className="text-[11px] uppercase tracking-[0.2em] font-semibold text-[#6B6459] mb-3">Latest Reports</div>
+              <h2 className="font-display text-[clamp(2rem,5vw,3.5rem)] font-bold text-[#0D0F14] leading-[1.08]">
+                From the Field
+              </h2>
+              <div className="mt-4 h-[3px] w-20 bg-[#C8102E]" />
             </div>
 
             {featured.issues.length === 0 ? (
@@ -241,49 +235,144 @@ function Home() {
                 </Link>
               </div>
             ) : (
-              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-                {featured.issues.map((it: any, i: number) => (
+              <div className="grid gap-0 md:gap-px bg-[#D8D2C8]">
+                {/* Top row: Featured story (2 cols) + secondary */}
+                <div className="grid lg:grid-cols-3 gap-0 md:gap-px">
+                  {/* Featured/hero story — left 2 cols */}
                   <Link
-                    key={it.id}
                     to="/issue/$id"
-                    params={{ id: it.id }}
-                    className={`issue-card animate-rise-${Math.min((i % 3) + 1, 3)}`}
+                    params={{ id: featured.issues[0].id }}
+                    className="lg:col-span-2 group bg-card overflow-hidden hover:shadow-elev transition-all duration-300 animate-rise"
                   >
-                    {it.images?.[0] ? (
-                      <div className="aspect-[16/10] overflow-hidden bg-[#EDE8DF]">
+                    {featured.issues[0].images?.[0] ? (
+                      <div className="aspect-[2/1] overflow-hidden bg-[#EDE8DF]">
                         <img
-                          src={it.images[0]}
+                          src={featured.issues[0].images[0]}
                           alt=""
                           className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />
                       </div>
                     ) : (
-                      <div
-                        className="aspect-[16/10]"
-                        style={{ background: "linear-gradient(135deg, #C8102E15 0%, #1A5C3815 100%)" }}
-                      />
+                      <div className="aspect-[2/1] bg-gradient-to-br from-[#C8102E15] to-[#1A5C3815]" />
                     )}
-                    <div className="p-5">
-                      <div className="flex items-center gap-2 text-xs">
-                        <StatusBadge status={it.status} />
-                        <span className="text-[#D8D2C8]">·</span>
-                        <span className="text-[#6B6459] text-[11px]">{it.counties?.name}</span>
+                    <div className="p-8 md:p-10 flex flex-col h-full">
+                      <div className="flex items-center gap-3 mb-4">
+                        <div className="h-[2px] w-8 bg-[#C8102E]" />
+                        <span className="text-[11px] uppercase tracking-[0.16em] font-semibold text-[#C8102E]">
+                          {featured.issues[0].categories?.name}
+                        </span>
                       </div>
-                      <h3 className="mt-3 font-display font-bold text-lg leading-tight line-clamp-2 text-[#0D0F14] group-hover:text-[#C8102E] transition-colors">
-                        {it.title}
+                      <h3 className="font-display text-[clamp(1.5rem,3vw,2.25rem)] font-bold leading-[1.1] text-[#0D0F14] group-hover:text-[#C8102E] transition-colors line-clamp-3">
+                        {featured.issues[0].title}
                       </h3>
-                      <p className="mt-2 text-sm text-[#6B6459] line-clamp-2 leading-relaxed">
-                        {it.description}
+                      <p className="mt-4 text-base text-[#6B6459] leading-relaxed line-clamp-3">
+                        {featured.issues[0].description}
                       </p>
-                      <div className="mt-4 flex items-center justify-between text-[11px] text-[#6B6459] pt-4 border-t border-[#D8D2C8]">
-                        <span className="uppercase tracking-wide font-semibold">{it.categories?.name}</span>
-                        <span className="font-bold text-[#0D0F14]">{it.support_count} supports</span>
+                      <div className="mt-auto pt-6 border-t border-[#D8D2C8] flex items-center justify-between text-[11px] text-[#6B6459] font-semibold uppercase tracking-wide">
+                        <span>{featured.issues[0].counties?.name}</span>
+                        <span className="text-[#0D0F14] font-bold flex items-center gap-2">
+                          <Users className="h-3 w-3" /> {featured.issues[0].support_count}
+                        </span>
                       </div>
                     </div>
                   </Link>
-                ))}
+
+                  {/* Secondary story — right col */}
+                  {featured.issues.length > 1 && (
+                    <Link
+                      to="/issue/$id"
+                      params={{ id: featured.issues[1].id }}
+                      className="group bg-card overflow-hidden hover:shadow-elev transition-all duration-300 animate-rise-1"
+                    >
+                      {featured.issues[1].images?.[0] ? (
+                        <div className="aspect-[4/3] overflow-hidden bg-[#EDE8DF]">
+                          <img
+                            src={featured.issues[1].images[0]}
+                            alt=""
+                            className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                          />
+                        </div>
+                      ) : (
+                        <div className="aspect-[4/3] bg-gradient-to-br from-[#B8620A15] to-[#1A5C3815]" />
+                      )}
+                      <div className="p-5 flex flex-col h-full">
+                        <div className="flex items-center gap-2 mb-3">
+                          <div className="h-[2px] w-5 bg-[#B8620A]" />
+                          <span className="text-[10px] uppercase tracking-[0.14em] font-semibold text-[#6B6459]">
+                            {featured.issues[1].categories?.name}
+                          </span>
+                        </div>
+                        <h4 className="font-display text-lg font-bold leading-tight text-[#0D0F14] group-hover:text-[#C8102E] transition-colors line-clamp-2">
+                          {featured.issues[1].title}
+                        </h4>
+                        <p className="mt-3 text-sm text-[#6B6459] line-clamp-2">
+                          {featured.issues[1].description}
+                        </p>
+                        <div className="mt-auto pt-3 border-t border-[#D8D2C8] flex items-center justify-between text-[10px] text-[#6B6459]">
+                          <span>{featured.issues[1].counties?.name}</span>
+                          <span className="font-bold">{featured.issues[1].support_count}</span>
+                        </div>
+                      </div>
+                    </Link>
+                  )}
+                </div>
+
+                {/* Bottom grid: Remaining stories */}
+                {featured.issues.length > 2 && (
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-0 md:gap-px">
+                    {featured.issues.slice(2).map((it: any, i: number) => (
+                      <Link
+                        key={it.id}
+                        to="/issue/$id"
+                        params={{ id: it.id }}
+                        className={`group bg-card overflow-hidden hover:shadow-elev transition-all duration-300 animate-rise-${Math.min((i % 3) + 1, 3)}`}
+                      >
+                        {it.images?.[0] ? (
+                          <div className="aspect-[16/10] overflow-hidden bg-[#EDE8DF]">
+                            <img
+                              src={it.images[0]}
+                              alt=""
+                              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+                            />
+                          </div>
+                        ) : (
+                          <div className="aspect-[16/10] bg-gradient-to-br from-[#1A5C3815] to-[#C8102E15]" />
+                        )}
+                        <div className="p-4 flex flex-col h-full">
+                          <div className="flex items-center gap-2 mb-2">
+                            <div className="h-[2px] w-4 bg-[#1A5C38]" />
+                            <span className="text-[9px] uppercase tracking-[0.12em] font-semibold text-[#6B6459]">
+                              {it.categories?.name}
+                            </span>
+                          </div>
+                          <h4 className="font-display text-base font-bold leading-snug text-[#0D0F14] group-hover:text-[#C8102E] transition-colors line-clamp-2">
+                            {it.title}
+                          </h4>
+                          <p className="mt-2 text-xs text-[#6B6459] line-clamp-2">
+                            {it.description}
+                          </p>
+                          <div className="mt-auto pt-3 border-t border-[#D8D2C8] flex items-center justify-between text-[9px] text-[#6B6459]">
+                            <span>{it.counties?.name}</span>
+                            <span className="font-bold">{it.support_count}</span>
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                )}
               </div>
             )}
+
+            {/* View all link */}
+            <div className="mt-12 text-center">
+              <Link
+                to="/issues"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-[#1A5C38] hover:text-[#C8102E] transition-colors group"
+              >
+                View all reports
+                <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
           </div>
         </section>
 
