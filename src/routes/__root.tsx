@@ -85,6 +85,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:description", content: "One Nation. One Voice. Every Issue Matters." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "google-site-verification", content: "0141b0c34fc1499e" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
