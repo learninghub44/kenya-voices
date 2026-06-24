@@ -208,10 +208,12 @@ export function SiteFooter() {
           <div className="font-sans text-[11px] uppercase tracking-[0.18em] font-bold text-[#F5F0E8]/40 mb-4">Platform</div>
           <ul className="space-y-2.5 text-sm text-[#F5F0E8]/60">
             {[
-              { to: "/issues", label: "Browse Issues" },
-              { to: "/report", label: "Report Issue" },
-              { to: "/track",  label: "Track Report" },
-              { to: "/about",  label: "About" },
+              { to: "/issues",      label: "Browse Issues" },
+              { to: "/report",      label: "Report Issue" },
+              { to: "/track",       label: "Track Report" },
+              { to: "/how-it-works",label: "How It Works" },
+              { to: "/impact",      label: "Our Impact" },
+              { to: "/about",       label: "About" },
             ].map(({ to, label }) => (
               <li key={to}>
                 <Link to={to} className="hover:text-[#F5F0E8] transition-colors">{label}</Link>
@@ -239,9 +241,12 @@ export function SiteFooter() {
           <div className="font-sans text-[11px] uppercase tracking-[0.18em] font-bold text-[#F5F0E8]/40 mb-4">Legal</div>
           <ul className="space-y-2.5 text-sm text-[#F5F0E8]/60">
             {[
-              { to: "/privacy", label: "Privacy" },
-              { to: "/terms",   label: "Terms" },
-              { to: "/contact", label: "Contact" },
+              { to: "/civic-rights", label: "Civic Rights" },
+              { to: "/resources",    label: "Resources" },
+              { to: "/faq",          label: "FAQ" },
+              { to: "/privacy",      label: "Privacy" },
+              { to: "/terms",        label: "Terms" },
+              { to: "/contact",      label: "Contact" },
             ].map(({ to, label }) => (
               <li key={to}>
                 <Link to={to} className="hover:text-[#F5F0E8] transition-colors">{label}</Link>
